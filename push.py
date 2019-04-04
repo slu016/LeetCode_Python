@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 git = "C:/Program Files/Git/cmd/git.exe"
 git_add = '"%s" add *'%git
@@ -14,11 +15,19 @@ current_path = os.path.abspath(__file__)
 father_path = os.path.abspath(os.path.dirname(current_path) + os.path.sep + ".")
 
 os.chdir(father_path)
-print(os.getcwd())
+# print(os.getcwd())
+# print(git_add)
 # os.system(git_add)
 # os.system(git_commit)
 # os.system(git_push)
 
-os.popen(git_add)
-os.popen(git_commit)
-os.popen(git_push)
+# os.popen(git_add)
+# os.popen(git_commit)
+# os.popen(git_push)
+
+ps1 = subprocess.Popen(git_add) # 执行cmd命令
+ps1.wait()#让程序阻塞
+ps2 = subprocess.Popen(git_commit)
+ps2.wait()
+ps3 = subprocess.Popen(git_push) # 执行cmd命令
+ps3.wait()
