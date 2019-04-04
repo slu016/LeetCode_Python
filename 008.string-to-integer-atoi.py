@@ -14,52 +14,33 @@ If the first sequence of non-whitespace characters in str is not a valid integra
 If no valid conversion could be performed, a zero value is returned. If the correct value is out of the range of representable values, INT_MAX (2147483647) or INT_MIN (-2147483648) is returned.
 '''
 
+import operator
 
-class Solution(object):
-    def myAtoi(self, str):
-        """
-        :type str: str
-        :rtype: int
-        """
-        strLen = len(str)
-        if str == '':
+class Solution:
+    def atoi(self, str):
+        str = str.strip()
+        flag = 1
+        result=0
+        i=0
+        if operator.eq(str, "") == True or len(str) == 0:
             return 0
-        i = 0
-
-        while (i < strLen):
-            # 跳过空白字符
-            if (str[i] == ' '):
-                i += 1
-            else:
+        if str [0]=='-':
+            flag =-1
+            i=i+1
+        elif str[0]=='+':
+            i=i+1
+        while(i<len(str)):
+            if not str[i].isdigit():
                 break
-
-        if i == strLen:
-            return 0
-        signal = 1
-        if str[i] == '+':
-            signal = 1
-            i += 1
-        elif str[i] == '-':
-            signal = -1
-            i += 1
-
-        res = 0
-        # Python不声明变量类型，数字超出int型范围自动转为长整型，因此要在80000000前加负号
-        maxInt = 0x7FFFFFFF
-        minInt = -0x80000000
-
-        while (i < strLen):
-            if ((str[i] >= '0') & (str[i] <= '9')):
-                # 是数字则乘以权值并相加
-                res = res * 10 + signal * (int(str[i]))
             else:
-                return res
-            # 这里可加语句用来调试print 'str[%d]=%s,res=%d'%(i,str[i],res)
-            if (res > maxInt):
-                return maxInt
-            elif (res < minInt):
-                return minInt
-            i += 1;
+                result = result *10 +int(str[i])
+            i=i+1
+        if flag*result >  2147483647:
+            return   2147483647
+        if flag*result <  -2147483648:
+            return -2147483648
+        return flag*result
 
-        return res
-
+if __name__ == '__main__':
+    result = Solution().atoi('33')
+    print(result)
