@@ -20,6 +20,7 @@ os.chdir(father_path)
 # os.system(git_add)
 # os.system(git_commit)
 # os.system(git_push)
+# 用上面的会有路径空格问题
 
 # os.popen(git_add)
 # os.popen(git_commit)
