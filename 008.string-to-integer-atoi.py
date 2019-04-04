@@ -18,7 +18,7 @@ import operator
 
 class Solution:
     def atoi(self, str):
-        str = str.strip()
+        str = str.strip() #strip() 方法用于移除字符串头尾指定的字符（默认为空格或换行符）或字符序列。rstrip() 删除 string 字符串末尾的指定字符（默认为空格）。lstrip() 方法用于截掉字符串左边的空格或指定字符。
         flag = 1
         result=0
         i=0
@@ -30,7 +30,7 @@ class Solution:
         elif str[0]=='+':
             i=i+1
         while(i<len(str)):
-            if not str[i].isdigit():
+            if not str[i].isdigit(): # isdigit() 方法检测字符串是否只由数字组成
                 break
             else:
                 result = result *10 +int(str[i])
