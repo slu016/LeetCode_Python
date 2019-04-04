@@ -15,6 +15,7 @@ If no valid conversion could be performed, a zero value is returned. If the corr
 '''
 
 import operator
+import re
 
 class Solution:
     def atoi(self, str):
@@ -41,6 +42,22 @@ class Solution:
             return -2147483648
         return flag*result
 
+
+class Solution2:
+    # @return an integer
+    def atoi(self, str):
+        str = str.strip()
+        str = re.findall('^[\+\-0]*\d+', str) #str是个列表，int()不能作用在列表上
+        result = int(str[0]) #把列表的第一个元素-字符串取出来，转换成数字
+        if result > 2147483647:
+            return 2147483647
+        if  result < -2147483648:
+            return -2147483648
+        return  result
+
+
 if __name__ == '__main__':
-    result = Solution().atoi('33')
+    result = Solution().atoi('+323bce67')
+    result2 = Solution2().atoi('-33aec67')
     print(result)
+    print(result2)
