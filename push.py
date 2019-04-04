@@ -1,6 +1,6 @@
 import os
 
-git = "C:/Program Files/Git/git-cmd.exe"
+git = "C:/Program Files/Git/cmd/git.exe"
 git_add = '"%s" add *'%git
 git_commit = '"%s" commit -m "test"'%git
 git_push = '"%s" push'%git
