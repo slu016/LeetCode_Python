@@ -4,7 +4,7 @@ git = "C:/Program Files/Git/git-cmd.exe"
 git_add = '"%s" add *'%git
 git_commit = '"%s" commit -m "test"'%git
 git_push = '"%s" push'%git
-# print(git_add)
+
 
 # print(os.getcwd())
 
@@ -19,6 +19,7 @@ print(os.getcwd())
 # os.system(git_commit)
 # os.system(git_push)
 
-os.popen(git_add)
+h1 = os.popen(git_add)
+print(h1.read())
 os.popen(git_commit)
 os.popen(git_push)
