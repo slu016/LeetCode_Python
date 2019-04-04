@@ -27,7 +27,7 @@ os.chdir(father_path)
 # os.popen(git_push)
 
 ps1 = subprocess.Popen(git_add) # 执行cmd命令
-ps1.wait()#让程序阻塞
+ps1.wait() #让程序阻塞
 ps2 = subprocess.Popen(git_commit)
 ps2.wait()
 ps3 = subprocess.Popen(git_push)
