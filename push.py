@@ -19,7 +19,6 @@ print(os.getcwd())
 # os.system(git_commit)
 # os.system(git_push)
 
-h1 = os.popen(git_add)
-print(h1.read())
+os.popen(git_add)
 os.popen(git_commit)
 os.popen(git_push)
